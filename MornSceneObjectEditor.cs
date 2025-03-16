@@ -6,7 +6,7 @@ using UnityEngine;
 namespace MornScene
 {
     [CustomPropertyDrawer(typeof(MornSceneObject))]
-    public class MornSceneObjectEditor : PropertyDrawer
+    internal class MornSceneObjectEditor : PropertyDrawer
     {
         private static SceneAsset GetSceneObject(string sceneName)
         {
