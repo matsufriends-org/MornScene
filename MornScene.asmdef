@@ -2,9 +2,10 @@
     "name": "MornScene",
     "rootNamespace": "MornScene",
     "references": [
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
         "GUID:e623bc35d2e040d4d81ac786178e2a6a",
-        "MornGlobal",
-        "MornEnum"
+        "GUID:1a328b9299f874e829993ee74d070a37",
+        "GUID:9fb3b15b1474476cbe64c6bd63468fb6"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
