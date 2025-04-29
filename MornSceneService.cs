@@ -7,7 +7,7 @@ namespace MornScene
     [AddComponentMenu("")]
     internal sealed class MornSceneService : MonoBehaviour
     {
-        [SerializeField] private List<MornSceneRollbackKey> _rollbackKeys = new();
+        [SerializeField] private List<string> _rollbackKeys = new();
         [SerializeField] private List<string> _rollbackSceneNames = new();
         private static MornSceneService _instance;
         public static MornSceneService I
@@ -43,13 +43,13 @@ namespace MornScene
 
         public void RegisterRollbackScene(MornSceneRollbackKey key, Scene scene)
         {
-            _rollbackKeys.Add(key);
+            _rollbackKeys.Add(key.Key);
             _rollbackSceneNames.Add(scene.name);
         }
 
         public bool TryGetRollbackScene(MornSceneRollbackKey key, out string sceneName)
         {
-            var index = _rollbackKeys.IndexOf(key);
+            var index = _rollbackKeys.IndexOf(key.Key);
             if (index == -1)
             {
                 sceneName = default;
