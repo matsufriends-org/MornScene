@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEngine;
 
@@ -24,8 +25,9 @@ namespace MornScene
                     EditorGUI.PropertyField(sceneRect, scene, GUIContent.none);
                     EditorGUI.indentLevel = indent;
                 }
-                EditorGUI.EndProperty();
             }
+            EditorGUI.EndProperty();
         }
     }
 }
+#endif
