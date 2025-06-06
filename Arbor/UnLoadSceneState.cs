@@ -7,13 +7,13 @@ namespace MornScene
 {
     public class UnLoadSceneState : StateBehaviour
     {
-        [SerializeField] private MornSceneObject _scene;
+        [SerializeField] private MornSceneType _scene;
         [SerializeField] private StateLink _next;
         private AsyncOperation _task;
 
         public override void OnStateBegin()
         {
-            _task = SceneManager.UnloadSceneAsync(_scene);
+            _task = SceneManager.UnloadSceneAsync(_scene.ToScene());
         }
 
         public override void OnStateUpdate()

@@ -7,13 +7,13 @@ namespace MornScene
 {
     public class AddSceneState : StateBehaviour
     {
-        [SerializeField] private MornSceneObject _scene;
+        [SerializeField] private MornSceneType _scene;
         [SerializeField] private StateLink _next;
         private AsyncOperation _task;
 
         public override void OnStateBegin()
         {
-            _task = SceneManager.LoadSceneAsync(_scene, LoadSceneMode.Additive);
+            _task = SceneManager.LoadSceneAsync(_scene.ToScene(), LoadSceneMode.Additive);
         }
 
         public override void OnStateUpdate()

@@ -7,13 +7,13 @@ namespace MornScene
 {
     public class WaitSceneCloseState : StateBehaviour
     {
-        [SerializeField] private MornSceneObject _scene;
+        [SerializeField] private MornSceneType _scene;
         [SerializeField] private StateLink _next;
         private Scene _loadScene;
 
         public override void OnStateBegin()
         {
-            _loadScene = SceneManager.GetSceneByName(_scene);
+            _loadScene = SceneManager.GetSceneByName(_scene.ToScene());
         }
 
         public override void OnStateUpdate()

@@ -8,13 +8,13 @@ namespace MornScene
 {
     public class AddAndWaitCloseSceneState : StateBehaviour
     {
-        [SerializeField] private MornSceneObject _scene;
+        [SerializeField] private MornSceneType _scene;
         [SerializeField] private StateLink _next;
 
         public override async void OnStateBegin()
         {
-            await SceneManager.LoadSceneAsync(_scene, LoadSceneMode.Additive);
-            var scene = SceneManager.GetSceneByName(_scene);
+            await SceneManager.LoadSceneAsync(_scene.ToScene(), LoadSceneMode.Additive);
+            var scene = SceneManager.GetSceneByName(_scene.ToScene());
             while (scene.isLoaded)
             {
                 await UniTask.Yield(CancellationTokenOnEnd);

@@ -7,11 +7,19 @@ namespace MornScene
 {
     public class ChangeSceneState : StateBehaviour
     {
-        [SerializeField] private MornSceneObject _scene;
-
+        [SerializeField] private MornSceneType _scene;
+        
         public override void OnStateBegin()
         {
-            SceneManager.LoadSceneAsync(_scene, LoadSceneMode.Single);
+            if (SceneManager.sceneCount > 1)
+            {
+                SceneManager.UnloadSceneAsync(gameObject.scene);
+                SceneManager.LoadScene(_scene.ToScene(), LoadSceneMode.Additive);
+            }
+            else
+            {
+                SceneManager.LoadScene(_scene.ToScene());
+            }
         }
     }
 }
