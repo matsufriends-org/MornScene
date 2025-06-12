@@ -43,6 +43,14 @@ namespace MornScene
 
         public void RegisterRollbackScene(MornSceneRollbackKey key, Scene scene)
         {
+            var index = _rollbackKeys.IndexOf(key.Key);
+            if (index != -1)
+            {
+                // 既に登録されている場合は上書き
+                _rollbackSceneNames[index] = scene.name;
+                return;
+            }
+            
             _rollbackKeys.Add(key.Key);
             _rollbackSceneNames.Add(scene.name);
         }
