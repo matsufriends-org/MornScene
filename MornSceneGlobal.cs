@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using MornGlobal;
 using UnityEngine;
@@ -9,11 +8,11 @@ namespace MornScene
     internal sealed class MornSceneGlobal : MornGlobalBase<MornSceneGlobal>
     {
         protected override string ModuleName => nameof(MornScene);
-        [SerializeField] private string[] _sceneKeys;
         [SerializeField] private string[] _rollbackKeys;
+        [SerializeField] private string[] _sceneKeys;
         [SerializeField] private List<TypeToScene> _toSceneList;
-        public string[] SceneKeys => _sceneKeys;
         public string[] RollbackKeys => _rollbackKeys;
+        public string[] SceneKeys => _sceneKeys;
 
         public MornSceneObject ToScene(MornSceneType scene)
         {
